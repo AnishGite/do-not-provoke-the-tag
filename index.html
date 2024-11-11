@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Don't Click!</title>
+    <style>
+        body {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+            background-color: #1a1a1a;
+            font-family: Arial, sans-serif;
+        }
+
+        #warning {
+            background-color: #ff4444;
+            padding: 20px;
+            border-radius: 10px;
+            cursor: pointer;
+            width: 300px;
+            font-size: 24px;
+            color: white;
+        }
+
+        #angry-face {
+            display: none;
+            animation: growIn 0.5s ease-out;
+        }
+
+        #message {
+            display: none;
+            color: #ff4444;  /* Changed to red */
+            font-size: 28px;
+            margin-top: 20px;
+            animation: fadeIn 1s ease-out;
+            font-weight: bold;  /* Added bold for better visibility */
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);  /* Added shadow for better contrast */
+        }
+
+        @keyframes growIn {
+            from {
+                transform: scale(0);
+            }
+            to {
+                transform: scale(1);
+            }
+        }
+
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+            }
+            to {
+                opacity: 1;
+            }
+        }
+
+        marquee {
+            color: white;
+            font-weight: bold;
+            font-size: 24px;
+        }
+    </style>
+</head>
+<body>
+    <div id="warning">
+        <marquee scrollamount="10" onclick="showAngryFace()">DON'T CLICK!</marquee>
+    </div>
+    
+    <img id="angry-face" src="angryface.png" alt="Angry Face" style="margin-top: 20px;">
+    <div id="message">Why did you click it?</div>
+
+    <script>
+        function showAngryFace() {
+            document.getElementById('warning').style.display = 'none';
+            const angryFace = document.getElementById('angry-face');
+            const message = document.getElementById('message');
+            angryFace.style.display = 'block';
+            message.style.display = 'block';
+        }
+    </script>
+</body>
+</html>
